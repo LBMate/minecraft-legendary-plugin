@@ -25,7 +25,7 @@ public class LegendaryWeapons extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new ExcaliburListener(this), this);
         getServer().getPluginManager().registerEvents(new DarkinBladeListener(this), this);
-        getServer().getPluginManager().registerEvents(new FrostmourneListener(this, frostmourneManager), this);
+        getServer().getPluginManager().registerEvents(new FrostmourneListener(this), this);
         getServer().getPluginManager().registerEvents(new MjolnirListener(this, mjolnirManager), this);
 
         getLogger().info("LegendaryWeapons enabled! 4 weapons loaded.");
@@ -33,7 +33,6 @@ public class LegendaryWeapons extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        if (frostmourneManager != null) frostmourneManager.cleanup();
         if (mjolnirManager != null) mjolnirManager.cleanup();
     }
 
@@ -61,6 +60,5 @@ public class LegendaryWeapons extends JavaPlugin {
 
     public static LegendaryWeapons getInstance() { return instance; }
     public WeaponRegistry getWeaponRegistry() { return weaponRegistry; }
-    public FrostmourneManager getFrostmourneManager() { return frostmourneManager; }
     public MjolnirManager getMjolnirManager() { return mjolnirManager; }
 }
